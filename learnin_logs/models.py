@@ -29,3 +29,5 @@ class Entry(models.Model):
             return f"{self.text[:50]}..."
         else:
             return f"{self.text}"
+
+        

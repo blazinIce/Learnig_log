@@ -101,3 +101,22 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learnin_logs/edit_entry.html', context)
+
+
+@login_required
+def edit_topic(request, topic_id):
+    """Edit existing topic"""
+    topic = Topic.objects.filter(owner=request.user).get(id=topic_id)
+
+    if request.method != 'POST':
+        # initial request; pre-fill form with current topic
+        form = TopicForm(instance=topic)
+    else:
+        # POST data submitted; process data
+        form = TopicForm(instance=topic, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('learnin_logs:topic', topic_id=topic.id)
+
+    context = {'topic': topic, 'form': form}
+    return render(request, 'learnin_logs/edit_topic.html', context)
