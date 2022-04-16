@@ -1,7 +1,7 @@
 {% load bootstrap4 %}
 
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:background-color="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -19,8 +19,9 @@
       <a class="navbar-brand" href="{% url 'learnin_logs:index' %}">Learning logs</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span>
-      </button>
+          data-target="#navbarCollapse" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle Navigation">
+        <span class="navbar-toggle-icon"></span></button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
       {% if user.is_authenticated %}
       <ul class="navbar-nav mr-auto">
