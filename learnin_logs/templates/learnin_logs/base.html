@@ -25,10 +25,8 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              {% if user.is authenticated %}
               <a class="nav-link" href="{% url 'learnin_logs:topics'%}">
                   Topics</a></li>
-               {% endif %}
       </ul>
       <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
