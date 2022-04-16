@@ -19,9 +19,8 @@
       <a class="navbar-brand" href="{% url 'learnin_logs:index' %}">Learning logs</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse"
-          data-target="#navbarCollapse" aria-controls="navbarCollapse"
-          aria-expanded="false" aria-label="Toggle Navigation">
-        <span class="navbar-toggle-icon"></span></button>
+              data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span>
+      </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
       {% if user.is_authenticated %}
       <ul class="navbar-nav mr-auto">
