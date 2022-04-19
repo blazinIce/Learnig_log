@@ -120,3 +120,21 @@ def edit_topic(request, topic_id):
 
     context = {'topic': topic, 'form': form}
     return render(request, 'learnin_logs/edit_topic.html', context)
+
+
+@login_required
+def delete_topic(request, topic_id):
+    """Delete a topic"""
+    topic = Topic.objects.filter(owner=request.user).get(id=topic_id)
+    topic.delete()
+    return redirect('learnin_logs:topics')
+
+
+@login_required
+def delete_entry(request, entry_id):
+    """Delete a topic"""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+    topic_owner(request, topic)
+    entry.delete()
+    return redirect('learnin_logs:topic', topic_id=topic.id)
