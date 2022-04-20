@@ -1,8 +1,8 @@
 {% extends 'learnin_logs/base.html'%}
 {% block page_header %}
     <h2>
-        {{ topic }} <small><a href="{% url 'learnin_logs:edit_topic' topic.id %}">Edit topic</a>
-        <a class="btn btn-sm btn-danger" href="{% url 'learnin_logs:delete_topic' topic.id  %}" role="button">Delete topic</a></small>
+        {{ topic }}   <small><a href="{% url 'learnin_logs:edit_topic' topic.id %}">Edit topic</a></small>
+        <a class="btn btn-sm btn-danger float-right" href="{% url 'learnin_logs:delete_topic' topic.id  %}" role="button">Delete topic</a>
     </h2>
 {% endblock page_header %}
 {% block content %}
@@ -15,7 +15,7 @@
     <div class="card mb-3">
         <h5 class="card-header">
             {{ entry.date_added|date:'M d, Y H:i' }}
-            <small><a href="{% url 'learnin_logs:edit_entry' entry.id %}">edit entry</a> <a class="btn btn-sm btn-danger" href="{% url 'learnin_logs:delete_entry' entry.id  %}" role="button">Delete entry</a></small>
+            <small><a href="{% url 'learnin_logs:edit_entry' entry.id %}">edit entry</a> <a class="btn btn-sm btn-danger float-right" href="{% url 'learnin_logs:delete_entry' entry.id  %}" role="button">Delete entry</a></small>
         </h5>
         <div class="card-body">
             {{ entry.text|linebreaks }}
